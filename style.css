@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0d0d10;
+    --card: #18181c;
+    --border: #2a2a30;
+    --dim: #555;
+    --neon: #39ff14;
+    --glow: #fff01f;
+    --blue: #3b8ef3;
+    --cyan: #22d3ee;
+    --red: #ff4455;
+}
+
+body {
+    background: var(--bg);
+    color: #fff;
+    font-family: system-ui, -apple-system, sans-serif;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    padding: 8px;
+    gap: 6px;
+}
+
+.hdr {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.app-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.clock {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background: #222;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-variant-numeric: tabular-nums;
+}
+
+.status-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 7px;
+}
+
+.pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--dim);
+    flex: 1;
+    transition: 0.3s;
+}
+
+.pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--dim);
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+.pill.cloud-on {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.pill.cloud-on .dot {
+    background: var(--blue);
+    box-shadow: 0 0 6px var(--blue);
+}
+
+.sys-bar {
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.sys-bar .online {
+    color: var(--neon);
+}
+
+.sys-bar .warning {
+    color: #f97316;
+}
+
+.sys-bar .error {
+    color: var(--red);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+
+.relay {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    transition: 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    padding: 8px 4px;
+}
+
+.relay:active {
+    transform: scale(0.93);
+}
+
+.relay-num {
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--dim);
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+.relay svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--dim);
+    transition: 0.3s;
+}
+
+.relay span {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--dim);
+    text-align: center;
+    line-height: 1.2;
+    transition: 0.3s;
+}
+
+.relay.active {
+    border-color: var(--neon);
+    background: #0d1f0d;
+}
+
+.relay.active .relay-num {
+    color: var(--neon);
+}
+
+.relay.active svg {
+    fill: var(--glow);
+}
+
+.relay.active span {
+    color: #ccc;
+}
+
+.footer {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.kill-btn {
+    flex: 1;
+    padding: 12px;
+    background: #2a0a0a;
+    border: 1.5px solid var(--red);
+    color: var(--red);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.kill-btn:active {
+    transform: scale(0.97);
+    background: #3d0e0e;
+}
+
+@media (max-width: 359px) {
+    .relay svg {
+        width: 18px;
+        height: 18px;
+    }
+    .relay span {
+        font-size: 8px;
+    }
+}
+
+.grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.grid::-webkit-scrollbar-thumb:hover {
+    background: var(--dim);
+}

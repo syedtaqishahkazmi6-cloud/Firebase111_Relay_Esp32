@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ESP32 - Cloud Relay Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="hdr">
+        <div class="top-row">
+            <span class="app-title">ESP32 &middot; Cloud Hub</span>
+            <span class="clock" id="clock">00:00:00</span>
+        </div>
+        <div class="status-row">
+            <div class="pill" id="cloud-pill"><div class="dot"></div>Cloud Signal</div>
+        </div>
+        <div class="sys-bar" id="main-status">System: <span>Loading...</span></div>
+    </div>
+
+    <main class="grid" id="relayGrid"></main>
+
+    <footer class="footer">
+        <button class="kill-btn" id="killAllBtn">&#8855; ALL OFF</button>
+    </footer>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
